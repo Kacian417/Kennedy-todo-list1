@@ -13,7 +13,8 @@ const TodoBody = ({todos}) => {
         return(
             <li className="list-item" key={todo.id}>
                 <label>{todo.title}</label>
-                <button
+                <button 
+                    className= "deleteButton"
                     onClick={() => deleteTask(todo.id)}
                 >X</button>
             </li>
