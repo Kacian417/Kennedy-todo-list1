@@ -2,11 +2,18 @@ import React from 'react';
 
 const TodoBody = ({todos}) => {
 
+    const deleteTask = () =>{console.log("Delete a task")}
+
     let renderTasks = todos.map(todo => {
 
         return(
-            <p>You have 5 todos.</p>
-        )
+            <li className="list-item" key={todo.id}>
+                <label>{todo.title}</label>
+                <button
+                    onClick={() => deleteTask()}
+                >X</button>
+            </li>
+        );
     })
 
     return (

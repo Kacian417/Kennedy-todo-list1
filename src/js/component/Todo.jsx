@@ -10,21 +10,20 @@ const Todo = () => {
 	const [tasks, setTasks] = useState([])
 	const [counter, setCounter] = useState(0)
 
-    const TodoList = [
-        {id: 1, title: 'Buy groceries', done: false },
-        {id: 2, title: 'Clean the house', done: true },
-        {id: 3, title: 'finish homework', done: false },
-        {id: 4, title: 'pay electric bill', done: true },
-        {id: 5, title: 'read a book', done: false },
-    ]
-
     return (
         <>
             <div className="todo-app">
                 <h1>To-dos</h1>
-                <TodoHeader />
-                <TodoBody todos={TodoList}/>
-                <TodoFooter todos={TodoList} />
+                <TodoHeader 
+                    todo={todo}
+                    setTodo={setTodo}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    counter={counter}
+                    setCounter={setCounter}
+                />
+                <TodoBody todos={tasks}/>
+                <TodoFooter todos={tasks} />
             </div>
         </>
     );
