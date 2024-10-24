@@ -22,7 +22,10 @@ const Todo = () => {
                     counter={counter}
                     setCounter={setCounter}
                 />
-                <TodoBody todos={tasks}/>
+                <TodoBody 
+                    todos={tasks}
+                    setTasks={setTasks}
+                />
                 <TodoFooter todos={tasks} />
             </div>
         </>

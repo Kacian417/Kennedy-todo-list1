@@ -1,8 +1,12 @@
+import { array } from 'prop-types';
 import React from 'react';
 
 const TodoBody = ({todos}) => {
 
-    const deleteTask = () =>{console.log("Delete a task")}
+    const deleteTask = (selectedToDoId) => {
+        let updateTodos = todos.filter(todo => todo.id !== selectedToDoId);
+        setTasks(updateTodos);
+    }
 
     let renderTasks = todos.map(todo => {
 
@@ -10,7 +14,7 @@ const TodoBody = ({todos}) => {
             <li className="list-item" key={todo.id}>
                 <label>{todo.title}</label>
                 <button
-                    onClick={() => deleteTask()}
+                    onClick={() => deleteTask(todo.id)}
                 >X</button>
             </li>
         );
