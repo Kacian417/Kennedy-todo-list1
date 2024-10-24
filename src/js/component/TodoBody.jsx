@@ -1,7 +1,7 @@
 import { array } from 'prop-types';
 import React from 'react';
 
-const TodoBody = ({todos}) => {
+const TodoBody = ({todos, setTasks}) => {
 
     const deleteTask = (selectedToDoId) => {
         let updateTodos = todos.filter(todo => todo.id !== selectedToDoId);

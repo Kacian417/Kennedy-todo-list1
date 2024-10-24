@@ -16,7 +16,7 @@ const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
         let newTask = {id: counter, title: todo, done: false};
         //setTasks = tasks.push(tasks);
         //console.log("creating a new task: ", newTask)
-        setTasks({...tasks, newTask})
+        setTasks([...tasks, newTask])
         setCounter(counter + 1);
 
     }
