@@ -4,15 +4,21 @@ import React from 'react';
 const TodoBody = ({todos, setTasks}) => {
 
     const deleteTask = (selectedToDoId) => {
-        let updateTodos = todos.filter(todo => todo.id !== selectedToDoId);
-        setTasks(updateTodos);
+        // let updateTodos = todos.filter(todo => todo.id !== selectedToDoId);
+        // setTasks(updateTodos);
+        fetch (`https://playground.4geeks.com/todo/todos/${selectedToDoId}`), {
+            method: 'DELETE'
+        }
+            .then(response => response.json())
+            .then(console.log("Successfully deleted"))
+            .catch(error => console.log(error))
     }
 
     let renderTasks = todos.map(todo => {
 
         return(
             <li className="list-item" key={todo.id}>
-                <label>{todo.title}</label>
+                <label>{todo.label}</label>
                 <button 
                     className= "deleteButton"
                     onClick={() => deleteTask(todo.id)}
