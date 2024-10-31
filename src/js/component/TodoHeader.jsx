@@ -1,4 +1,6 @@
 import React from 'react';
+import { postData } from '../lib/actions';
+
 
 const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
 
@@ -12,13 +14,12 @@ const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
     }
 
     const addTask = () => {
-        //console.log("Creating a new todo: ", todo);
-        let newTask = {id: counter, title: todo, done: false};
-        //setTasks = tasks.push(tasks);
-        //console.log("creating a new task: ", newTask)
-        setTasks([...tasks, newTask])
-        setCounter(counter + 1);
-
+        let newTaskItem = { 
+            label: todo, 
+            is_done: false
+        }
+        postData(setTasks, newTaskItem);
+        setTodo("");
     }
 
     return (

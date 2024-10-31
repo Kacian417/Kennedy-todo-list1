@@ -3,8 +3,29 @@
     font-size:x-large;
     display: grid;
     justify-content: center;
+    border-color: black;
 }
 
 .list-item {
-    border-style: 15px grey; 
+    flex-flow: left;
+    border: grey; 
+    background-color: lightgray;
+    padding-inline-start: 10px;
+    list-style-type: none;
+    margin-left: -32px;
+}
+
+.deleteButton {
+    flex-flow: right;
+    margin-left: auto;
+}
+
+.userButtons {
+    margin-top: 20px;
+    
+}
+
+.deleteUserButton {
+    flex-flow: right;
+    margin-left: auto;
 }

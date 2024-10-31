@@ -1,27 +1,20 @@
 import { array } from 'prop-types';
 import React from 'react';
+import { deleteTask } from '../lib/actions';
 
-const TodoBody = ({todos, setTasks}) => {
-
-    const deleteTask = (selectedToDoId) => {
+const TodoBody = ({tasks, setTasks}) => {   
         // let updateTodos = todos.filter(todo => todo.id !== selectedToDoId);
         // setTasks(updateTodos);
-        fetch (`https://playground.4geeks.com/todo/todos/${selectedToDoId}`), {
-            method: 'DELETE'
-        }
-            .then(response => response.json())
-            .then(console.log("Successfully deleted"))
-            .catch(error => console.log(error))
-    }
 
-    let renderTasks = todos.map(todo => {
+
+    let renderTasks = tasks.map(todo => {
 
         return(
-            <li className="list-item" key={todo.id}>
+            <li className="list-item d-flex" key={todo.id}>
                 <label>{todo.label}</label>
                 <button 
-                    className= "deleteButton"
-                    onClick={() => deleteTask(todo.id)}
+                    className= "deleteButton d-flex"
+                    onClick={() => deleteTask(todo.id, setTasks)}
                 >X</button>
             </li>
         );
@@ -32,7 +25,7 @@ const TodoBody = ({todos, setTasks}) => {
             <section className="todo-body">
                 <ul className="todo-list">
                     {
-                        todos.length !== 0
+                        tasks.length !== 0
                         ?
                         renderTasks 
                         :

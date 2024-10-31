@@ -12,8 +12,20 @@ const TodoFooter = ({todos}) => {
                 :
                 `${todos.length} item left.`}
             </footer>
+
+            <div className="userButtons d-flex">
+                <button 
+                    className= "newUserButton"
+                    onClick={() => addUser}
+                >New User</button>
+                <button
+                    className= "deleteUserButton d-flex"
+                    onClick={() => deleteUser}
+                >Delete User</button>
+            </div>
         </>
     );
+    
 }
 
 export default TodoFooter;
