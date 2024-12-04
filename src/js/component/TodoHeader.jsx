@@ -1,5 +1,6 @@
 import React from 'react';
 import { postData } from '../lib/actions';
+import "../../styles/Todo.css"
 
 
 const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
@@ -37,6 +38,7 @@ const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
             </header>
         </>
     );
+    
 }
 
 export default TodoHeader;

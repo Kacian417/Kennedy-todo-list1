@@ -3,21 +3,33 @@
     font-size:x-large;
     display: grid;
     justify-content: center;
+    border: 10px;
     border-color: black;
 }
 
 .list-item {
     flex-flow: left;
-    border: grey; 
+    border: black; 
     background-color: lightgray;
     padding-inline-start: 10px;
     list-style-type: none;
     margin-left: -32px;
+    box-shadow: 0px 5px 5px grey;
 }
 
 .deleteButton {
     flex-flow: right;
     margin-left: auto;
+    background-color: lightgray;
+    
+}
+
+.delete .show_on_hover {
+    display: none;
+}
+
+.delete:hover .show_on_hover {
+    display: block;
 }
 
 .userButtons {
