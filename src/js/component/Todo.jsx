@@ -22,7 +22,9 @@ const Todo = () => {
     return (
         <>
             <div className="todo-app">
-                <h1>To-dos</h1>
+                <div className="todoTitle d-flex justify-content-center">
+                    <h1>To-dos</h1>
+                </div>
                 <TodoHeader 
                     todo={todo}
                     setTodo={setTodo}

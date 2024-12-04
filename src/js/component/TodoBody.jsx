@@ -11,12 +11,12 @@ const TodoBody = ({tasks, setTasks}) => {
     let renderTasks = tasks.map(todo => {
 
         return(
-            <li className="list-item d-flex" key={todo.id}>
-                <label>{todo.label}</label>
-                <div className="delete">
-                    <div className="show_on_hover">
+            <li className="list-item" key={todo.id}>
+                <div class="delete d-flex justify-content-between">
+                    <label>{todo.label}</label>                    
+                    <div class="show_on_hover">
                         <button 
-                            className= "deleteButton d-flex"
+                            className= "deleteButton d-flex justify-content-end ps-4"
                             onClick={() => deleteTask(todo.id, setTasks)}
                         >X</button>
                     </div>
