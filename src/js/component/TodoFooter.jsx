@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { postUser, deleteUser, getData } from '../lib/actions';
 
 const TodoFooter = ({todos}) => {
+
+    const [newUser, setNewUser] = useState ([])
+
+    useEffect(() => {
+        
+        getData(setNewUser);
+    }, []);
+
+    const addNewUser = () => {
+        let newUserName = { 
+            label: userName, 
+            is_done: false
+        }
+        postUser(setNewUser, newUserName);
+        setNewUser("");
+    }
 
     return (
         <>
@@ -16,7 +33,7 @@ const TodoFooter = ({todos}) => {
             <div className="userButtons d-flex">
                 <button 
                     className= "newUserButton"
-                    onClick={() => addUser}
+                    onClick={() => postUser(newUser.id, setNewUser)}
                 >New User</button>
                 <button
                     className= "deleteUserButton d-flex"

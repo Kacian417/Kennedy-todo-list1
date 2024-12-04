@@ -16,14 +16,14 @@ const Todo = () => {
     // the [] called the dependency array which are needed to render only one time
     useEffect(() => {
         
-        getData(setTasks);
+        getData(setTasks, setNewUser);
     }, []);
 
     return (
         <>
             <div className="todo-app">
                 <div className="todoTitle d-flex justify-content-center">
-                    <h1>To-dos</h1>
+                    <h1>{newUser}'s To-dos</h1>
                 </div>
                 <TodoHeader 
                     todo={todo}
@@ -37,7 +37,11 @@ const Todo = () => {
                     tasks={tasks}
                     setTasks={setTasks}
                 />
-                <TodoFooter todos={tasks} />
+                <TodoFooter 
+                    todos={tasks}
+                    newUser={newUser}
+                    setNewUSer={setNewUser}
+                />
             </div>
         </>
     );

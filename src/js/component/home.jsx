@@ -6,7 +6,11 @@ const Home = () => {
 
 	return (
 		<>
+			<div className="row"></div>
+			<div className="Home col-6 d-flex justify-content-center">
 			<Todo />
+			</div>
+			
 		</>
 	);
 };
