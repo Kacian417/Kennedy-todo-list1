@@ -10,13 +10,13 @@ const Todo = () => {
     const [todo, setTodo] = useState("")
 	const [tasks, setTasks] = useState([])
 	const [counter, setCounter] = useState(0)
-    const [newUser, setNewUser] = useState ([])
+    const [newUser, setNewUser] = useState ("kennedy")
 
     //creating useEffect hook that renders only on the first render
     // the [] called the dependency array which are needed to render only one time
     useEffect(() => {
         
-        getData(setTasks, setNewUser);
+        getData(setTasks, newUser, setNewUser);
     }, []);
 
     return (
@@ -32,6 +32,8 @@ const Todo = () => {
                     setTasks={setTasks}
                     counter={counter}
                     setCounter={setCounter}
+                    newUser={newUser}
+                    setNewUSer={setNewUser}
                 />
                 <TodoBody 
                     tasks={tasks}

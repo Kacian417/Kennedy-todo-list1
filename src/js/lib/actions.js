@@ -1,5 +1,5 @@
-export const getData = async (setTasks, setNewUser) => {
-    const response = await fetch('https://playground.4geeks.com/todo/users/kennedy');
+export const getData = async (setTasks, newUser, setNewUser) => {
+    const response = await fetch('https://playground.4geeks.com/todo/users/${newUser)');
     if (response.ok) {
         const data = await response.json();
         setTasks(data.todos);
@@ -11,7 +11,7 @@ export const getData = async (setTasks, setNewUser) => {
     }
 }
 
-export const postData = (setTasks, newTaskItem) => {
+export const postData = (setTasks, newTaskItem, newUser) => {
     let options = {
         method: 'POST',
         body: JSON.stringify(newTaskItem),
@@ -19,7 +19,7 @@ export const postData = (setTasks, newTaskItem) => {
             'Content-Type': 'application/json'
         }
     }    
-    fetch('https://playground.4geeks.com/todo/todos/kennedy', options)
+    fetch('https://playground.4geeks.com/todo/todos/${newUser}', options)
     .then(response => {
         if(!response.ok) {
             throw Error(response.statusText)
@@ -31,13 +31,14 @@ export const postData = (setTasks, newTaskItem) => {
     .catch(error => console.log("Error: ", error))
 }
 
-export const deleteTask = (selectedToDoId, setTasks) => {
+export const deleteTask = (selectedToDoId, setTasks, newUser, setNewUser) => {
     fetch (`https://playground.4geeks.com/todo/todos/${selectedToDoId}`, {
         method: 'DELETE'})
+
         .then(response => {
             if(response.status === 204) {
                 //console.log("Task was deleted successfully.")
-                getData(setTasks);
+                getData(setTasks, newUser, setNewUser);
             }
             else {
                 throw new Error("Error! The task was not deleted or found.")

@@ -3,7 +3,7 @@ import { postData } from '../lib/actions';
 import "../../styles/Todo.css"
 
 
-const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
+const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter, newUser, setNewUser}) => {
 
     const validateInput = () => {
         if (todo === "") {
@@ -19,7 +19,7 @@ const TodoHeader = ({todo, setTodo, tasks, setTasks, counter, setCounter}) => {
             label: todo, 
             is_done: false
         }
-        postData(setTasks, newTaskItem);
+        postData(setTasks, newTaskItem, newUser);
         setTodo("");
     }
 
